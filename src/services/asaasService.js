@@ -22,7 +22,6 @@ const createCustomer = async (customerData) => {
 
 const listCustomers = async (cpfCnpj) => {
     try {
-        console.log(cpfCnpj);
         const response = await asaasApi.get('/customers',{
             params: cpfCnpj
         });
