@@ -5,7 +5,7 @@ const asaasApi = axios.create({
     baseURL: process.env.ASAAS_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
-        'access_token': process.env.ASAAS_API_KEY,
+        'access_token': `$${process.env.ASAAS_API_KEY}==`,
     },
 });
 
@@ -25,6 +25,7 @@ const listCustomers = async (cpfCnpj) => {
             params: cpfCnpj
         });
 
+        console.log(response);
         return response.data;
     } catch (error) {
         console.error('Erro ao listar clientes:', error.response ? error.response.data : error.message);
